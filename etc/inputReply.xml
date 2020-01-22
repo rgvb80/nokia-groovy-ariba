@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rfc:ARBCIG_DERIVATION.Response xmlns:rfc="urn:sap-com:document:sap:rfc:functions">
+	<ARIBA_DOC_NO>PR9105</ARIBA_DOC_NO>
+	<PARTITION>prealm_2574</PARTITION>
+	<RESPONSE_IMPORT_ITEM/>
+	<SOURCE/>
+	<VARIANT>vrealm_2574</VARIANT>
+	<ACCOUNT_ASSIGNMENT_TYPES/>
+	<CHECK_CODINGBLOCK/>
+	<CHECK_CUSTOMERFIELDS/>
+	<EXTENSIONIN/>
+	<EXTENSIONOUT/>
+	<RETURN/>
+</rfc:ARBCIG_DERIVATION.Response>
