@@ -20,14 +20,14 @@ class Tester extends Specification {
         GroovyShell shell = new GroovyShell()
 
         //Purchase Requisition validation  
-        script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/PurchaseRequisitionValidation.groovy"))
+        //script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/PurchaseRequisitionValidation.groovy"))
         //script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/PurchaseRequisitionValidationReply.groovy"))
 
         //Invoice Validation
         //script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/InvoiceValidation.groovy"))
 
         //Contract Validation
-        //script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/ContractValidationReply.groovy"))
+        script = shell.parse(new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/src/nokia/com/ContractValidationReply.groovy"))
 
         CamelContext context = new DefaultCamelContext()
         exchange = new DefaultExchange(context)
@@ -38,7 +38,7 @@ class Tester extends Specification {
         given:
         //--------------------------------------------------------------
         // Initialize message with body, header and property
-        def body = new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/etc/input.xml")
+        def body = new File("C:/Users/ribernar/IdeaProjects/PurchaseRequisitionValidation_to_ARBCIG_DERIVATION/etc/inputErrorReply.txt")
         msg.setProperty('DocType', 'Z001')
         //--------------------------------------------------------------
 

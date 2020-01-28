@@ -19,7 +19,7 @@ def Message processData(Message message) {
         'ARIBA_DOC_NO'(AribaRequest.Invoice_ProcessInvoiceExtHeaderDetails_Item.item.UniqueName)
         'PARTITION'(AribaRequest.@partition)
         'VARIANT'(AribaRequest.@variant)
-
+        'SOURCE'("BUY")
         def String companyCode = AribaRequest.Invoice_ProcessInvoiceExtHeaderDetails_Item.item.CompanyCode.UniqueName
 
         def validItems = AribaRequest.Invoice_ProcessInvoiceExtLineDetails_Item.item.LineItems.item.findAll {
@@ -29,7 +29,7 @@ def Message processData(Message message) {
         'CHECK_CODINGBLOCK'{
             validItems.each { item ->
                 def lineNumber = item.NumberInCollection.text()
-                'ARBCIG_BAPICOBL' {
+                'ITEM' {
                     'ARIBA_ITEM'(item.NumberInCollection)
                     'PSTNG_DATE'(getCurrentDate())
                     'DOC_DATE'(getCurrentDate())
@@ -61,7 +61,7 @@ def Message processData(Message message) {
         'CHECK_CUSTOMERFIELDS'{
             validItems.each { item ->
                 def lineNumber = item.NumberInCollection.text()
-                'ARBCIG_BAPICOBL_CUST' {
+                'ITEM' {
                     'ARIBA_ITEM'(lineNumber)
                     'ZZEKORG'(item.PurchaseOrg.UniqueName)
                 }

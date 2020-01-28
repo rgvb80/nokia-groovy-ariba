@@ -19,6 +19,7 @@ def Message processData(Message message) {
         'ARIBA_DOC_NO'(AribaRequest.ContractRequest_ContractRequestExternalHeaderDetails_Item.item.UniqueName)
         'PARTITION'(AribaRequest.@partition)
         'VARIANT'(AribaRequest.@variant)
+        'SOURCE'("BUY")
         def String venderNO = AribaRequest.ContractRequest_ContractRequestExternalHeaderDetails_Item.item.Supplier.UniqueName
         def String companyCode = AribaRequest.ContractRequest_ContractRequestExternalHeaderDetails_Item.item.CompanyCode.UniqueName
        def String purchaseOrg = AribaRequest.ContractRequest_ContractRequestExternalHeaderDetails_Item.item.PurchaseOrg.UniqueName
@@ -28,7 +29,8 @@ def Message processData(Message message) {
         'CHECK_CODINGBLOCK'{
             validItems.each { item ->
                 def lineNumber = item.Accountings.SplitAccountings.item.LineItem.NumberInCollection.text()
-                'ARBCIG_BAPICOBL' {
+                //'ARBCIG_BAPICOBL' {
+                'ITEM' {
                     'ARIBA_ITEM'(lineNumber)
                     'PSTNG_DATE'(getCurrentDate())
                     'DOC_DATE'(getCurrentDate())
@@ -50,7 +52,8 @@ def Message processData(Message message) {
         'CHECK_CUSTOMERFIELDS'{
             validItems.each { item ->
                 def lineNumber = item.Accountings.SplitAccountings.item.LineItem.NumberInCollection.text()
-                'ARBCIG_BAPICOBL_CUST' {
+                'ITEM' {
+               // 'ARBCIG_BAPICOBL_CUST' {
                     'ARIBA_ITEM'(lineNumber)
                     'ZZEKORG'(purchaseOrg)
                 }
